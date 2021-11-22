@@ -96,7 +96,7 @@ public class RectangleTest {
         Rectangle rectangle1 = new Rectangle(1,1,2,2);
         Rectangle rectangle2 = new Rectangle(3,1,2,2);
 
-        AdjacencyType adjacencyType = rectangle2.isAdjacent(rectangle1);
+        AdjacencyType adjacencyType = rectangle2.getAdjacencyType(rectangle1);
         assertEquals(AdjacencyType.PROPER, adjacencyType);
     }
 
@@ -105,7 +105,7 @@ public class RectangleTest {
         Rectangle rectangle1 = new Rectangle(1,1,2,2);
         Rectangle rectangle2 = new Rectangle(3,1,2,1);
 
-        AdjacencyType adjacencyType = rectangle2.isAdjacent(rectangle1);
+        AdjacencyType adjacencyType = rectangle2.getAdjacencyType(rectangle1);
         assertEquals(AdjacencyType.PARTIAL, adjacencyType);
     }
 
@@ -114,7 +114,7 @@ public class RectangleTest {
         Rectangle rectangle1 = new Rectangle(1,1,2,2);
         Rectangle rectangle2 = new Rectangle(3,1,2,4);
 
-        AdjacencyType adjacencyType = rectangle2.isAdjacent(rectangle1);
+        AdjacencyType adjacencyType = rectangle2.getAdjacencyType(rectangle1);
         assertEquals(AdjacencyType.SUB_LINE, adjacencyType);
     }
 
@@ -123,7 +123,7 @@ public class RectangleTest {
         Rectangle rectangle1 = new Rectangle(1,1,2,2);
         Rectangle rectangle2 = new Rectangle(4,1,2,2);
 
-        AdjacencyType adjacencyType = rectangle2.isAdjacent(rectangle1);
+        AdjacencyType adjacencyType = rectangle2.getAdjacencyType(rectangle1);
         assertEquals(AdjacencyType.NO_ADJACENT, adjacencyType);
     }
 
@@ -132,7 +132,7 @@ public class RectangleTest {
         Rectangle rectangle1 = new Rectangle(1,1,2,2);
         Rectangle rectangle2 = new Rectangle(1,3,2,2);
 
-        AdjacencyType adjacencyType = rectangle2.isAdjacent(rectangle1);
+        AdjacencyType adjacencyType = rectangle2.getAdjacencyType(rectangle1);
         assertEquals(AdjacencyType.PROPER, adjacencyType);
 
     }
@@ -142,7 +142,7 @@ public class RectangleTest {
         Rectangle rectangle1 = new Rectangle(1,1,2,2);
         Rectangle rectangle2 = new Rectangle(1,4,2,2);
 
-        AdjacencyType adjacencyType = rectangle2.isAdjacent(rectangle1);
+        AdjacencyType adjacencyType = rectangle2.getAdjacencyType(rectangle1);
         assertEquals(AdjacencyType.NO_ADJACENT, adjacencyType);
     }
 }

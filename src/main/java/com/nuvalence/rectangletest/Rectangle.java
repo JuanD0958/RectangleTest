@@ -14,7 +14,6 @@ enum AdjacencyType {
     NO_ADJACENT
 }
 
-
 public class Rectangle implements Shape{
 
     private int x;
@@ -45,6 +44,7 @@ public class Rectangle implements Shape{
         int originalRectanglePositionX = this.x;
         int originalRectanglePositionY = this.y;
 
+        // check empty sizes
         if ((originalRectangleWidth | originalRectangleHeight | rectangle.x | rectangle.y) < 0) {
             return false;
         }
@@ -53,6 +53,7 @@ public class Rectangle implements Shape{
             return false;
         }
 
+        //validate if width is bigger than the original rectangle
         int originalRectangleSize = originalRectanglePositionX + originalRectangleWidth;
         int rectangleSize = rectangle.x + rectangle.width;
 
@@ -63,7 +64,7 @@ public class Rectangle implements Shape{
                 return false;
             }
         }
-
+        //validate if height is bigger than the original rectangle
         int originalRectangleHeightSize = originalRectangleHeight + originalRectanglePositionY;
         int rectangleHeightSize = rectangle.y + rectangle.height;
 
@@ -112,7 +113,7 @@ public class Rectangle implements Shape{
         if (rectangle1TotalWidth < 0) {
             return intersections;
         }
-
+        // At this point we are basically getting a rectangle formed between the first two, now we will check each edge to check if it's an intersection.
         if ((rectangle1PosX == this.x && rectangle1PosY == rectangle.y) || (rectangle1PosX == rectangle.x && rectangle1PosY == this.y)) {
            Point pos1 = new Point(rectangle1PosX,rectangle1PosY);
            intersections.add(pos1);
@@ -138,7 +139,8 @@ public class Rectangle implements Shape{
     }
 
     @Override
-    public AdjacencyType isAdjacent(Rectangle rectangle){
+    public AdjacencyType getAdjacencyType(Rectangle rectangle){
+        // check horizontal adjacency
         if ((this.x == rectangle.getX() + rectangle.width) || (this.x + this.width == rectangle.getX())) {
             if ((this.height - rectangle.height) == 0) {
                 return AdjacencyType.PROPER;
@@ -149,6 +151,7 @@ public class Rectangle implements Shape{
                 return AdjacencyType.PARTIAL;
             }
         }
+        // check vertical adjacency
         if ((this.y == rectangle.getY() + rectangle.height) || (this.y + this.height == rectangle.getY())) {
             if ( this.width - rectangle.width == 0) {
                 return AdjacencyType.PROPER;

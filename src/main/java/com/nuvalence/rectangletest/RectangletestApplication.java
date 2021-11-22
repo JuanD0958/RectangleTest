@@ -1,6 +1,5 @@
 package com.nuvalence.rectangletest;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.List;
@@ -45,7 +44,7 @@ public class RectangletestApplication {
 
 		System.out.printf("Rectangle 1 contains Rectangle 2: %b \n",rectangle.contains(rectangle2));
 
-		System.out.printf("Is Rectangle 1 adjacent to Rectangle 2: %b\n",rectangle.isAdjacent(rectangle2));
+		System.out.printf("Is Rectangle 1 adjacent to Rectangle 2: %b\n",rectangle.getAdjacencyType(rectangle2));
 
 		List<Point> intersections = rectangle.intersects(rectangle2);
 		System.out.printf("Intersections between both rectangles %d\n", intersections.size());

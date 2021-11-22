@@ -6,7 +6,7 @@ interface Shape {
 
     boolean contains(Rectangle rectangle);
 
-    AdjacencyType isAdjacent(Rectangle rectangle);
+    AdjacencyType getAdjacencyType(Rectangle rectangle);
 
     List<Point> intersects(Rectangle rectangle);
 }
